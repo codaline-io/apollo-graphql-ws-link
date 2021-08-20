@@ -11,7 +11,7 @@ Just the graphql-ws ["Client with Apollo Recipe"](https://github.com/enisdenjo/g
 
 - import WebSocketLink `import { WebSocketLink } from 'apollo-graphql-ws-link'`
 - create new WebSocketLink instance and pass graphql-ws client options `new WebSocketLink({
-  url: `ws://localhost:3000/graphql`
+  url: 'ws://localhost:3000/graphql'
 })`
 
 #### Example:
