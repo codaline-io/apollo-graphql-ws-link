@@ -1,11 +1,10 @@
 {
   "name": "apollo-graphql-ws-link",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "The graphql-ws apollo link recipe as package ",
   "source": "index.ts",
   "main": "./dist/apollo-graphql-ws-link.umd.js",
   "module": "./dist/apollo-graphql-ws-link.module.js",
-  "exports": "./dist/apollo-graphql-ws-link.modern.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "rm -rf ./dist && microbundle --ts -i ./index.ts -o ./dist",
