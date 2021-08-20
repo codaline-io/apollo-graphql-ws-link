@@ -4,3 +4,4 @@ node_modules
 index.ts
 .eslintrc.js
 .eslintignore
+tsconfig.eslint.json

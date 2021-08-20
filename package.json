@@ -1,12 +1,14 @@
 {
   "name": "apollo-graphql-ws-link",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "The graphql-ws apollo link recipe as package ",
   "source": "index.ts",
   "exports": "./dist/apollo-graphql-ws-link.modern.js",
   "main": "./dist/apollo-graphql-ws-link.cjs",
-  "module": "./dist/apollo-graphql-ws-link.module.js",
+  "module": "./dist/apollo-graphql-ws-link.js",
   "unpkg": "./dist/apollo-graphql-ws-link.umd.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
   "scripts": {
     "build": "microbundle --ts -i ./index.ts -o ./dist",
     "lint": "eslint index.ts"
