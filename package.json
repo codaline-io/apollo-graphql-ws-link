@@ -11,7 +11,8 @@
   "type": "module",
   "scripts": {
     "build": "microbundle --ts -i ./index.ts -o ./dist",
-    "lint": "eslint index.ts"
+    "lint": "eslint index.ts",
+    "prepare": "npm run lint && npm run build"
   },
   "repository": {
     "type": "git",
