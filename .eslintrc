@@ -7,6 +7,7 @@
   "parserOptions": {
     "project": "./tsconfig.eslint.json"
   },
+  "plugins": ["import"],
   "rules": {
     "@typescript-eslint/comma-dangle": ["error", "never"],
     "@typescript-eslint/semi": ["error", "never"],

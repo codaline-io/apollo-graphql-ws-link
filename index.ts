@@ -1,7 +1,7 @@
 import {
   ApolloLink, FetchResult, Observable, Operation
 } from '@apollo/client/core'
-import { GraphQLError, print } from 'graphql'
+import { print } from 'graphql'
 import { Client, ClientOptions, createClient } from 'graphql-ws'
 
 export class WebSocketLink extends ApolloLink {
@@ -16,10 +16,13 @@ export class WebSocketLink extends ApolloLink {
     return new Observable((sink) => this.client.subscribe<FetchResult>(
       { ...operation, query: print(operation.query) },
       {
+        next: sink.next.bind(sink),
         complete: sink.complete.bind(sink),
         error: (err) => {
-          if (err instanceof Error) {
-            return sink.error(err)
+          if (Array.isArray(err)) {
+            return sink.error(
+              new Error(err.map(({ message }) => message).join(', '))
+            )
           }
 
           if (err instanceof CloseEvent) {
@@ -29,9 +32,8 @@ export class WebSocketLink extends ApolloLink {
             )
           }
 
-          return sink.error(new Error((err as GraphQLError[]).map(({ message }) => message).join(', ')))
-        },
-        next: sink.next.bind(sink)
+          return sink.error(err)
+        }
       }
     ))
   }
