@@ -26,10 +26,10 @@ export class WebSocketLink extends ApolloLink {
           }
 
           if (err instanceof CloseEvent) {
-            return sink.error(
-              // reason will be available on clean closes
-              new Error(`Socket closed with event ${err.code} ${err.reason || ''}`)
-            )
+            // reason will be available on clean closes
+            const error = new Error(`Socket closed with event ${err.code} ${err.reason || ''}`)
+            error.name = 'CloseEvent'
+            return sink.error(error)
           }
 
           return sink.error(err)
